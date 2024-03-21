@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Game_Making.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Characters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +77,30 @@
       <option name="presentableId" value="Default" />
       <updated>1710995734438</updated>
     </task>
+    <task id="LOCAL-00001" summary="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement.">
+      <option name="closed" value="true" />
+      <created>1711000633100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711000633100</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
+    <option name="LAST_COMMIT_MESSAGE" value="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
   </component>
 </project>
