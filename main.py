@@ -10,6 +10,7 @@ screen_width, screen_height = infoObject.current_w, infoObject.current_h
 window = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)
 pygame.display.set_caption("Game Window!")
 
+screen_width, screen_height = window.get_size()
 # Initialize font
 font_size = 24
 game_font = pygame.font.SysFont('Arial', font_size)
@@ -18,7 +19,7 @@ player = Character('Me', 200, 200, 50, 50, (255,255,255), 5, False)
 
 # Setup teammates...
 teammates = [Character('Raymond', 50, 50, 50, 50, (255, 0, 0), 1, True),
-              Character('Garry', 100, 100, 50, 50, (0, 255, 0), 1, False),
+              Character('Gary', 100, 100, 50, 50, (0, 255, 0), 1, False),
               Character('Bert', 150, 150, 50, 50, (0, 0, 255), 1, False)]
 active_character = teammates[0]
 
@@ -63,7 +64,7 @@ while running:
 
     # Only call move_WASD if there are directions to process
     if directions:
-        player.move_WASD(directions)
+        player.move_WASD(directions, screen_height, screen_width)
 
     # Exit game with ESC
     if keys[pygame.K_ESCAPE]:

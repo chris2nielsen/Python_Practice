@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement.">
+    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/Characters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -100,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711000776800</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates.">
+      <option name="closed" value="true" />
+      <created>1711076806003</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711076806003</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +124,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
-    <option name="LAST_COMMIT_MESSAGE" value="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
+    <MESSAGE value="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates." />
   </component>
 </project>

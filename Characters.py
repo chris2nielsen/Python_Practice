@@ -28,14 +28,22 @@ class Character:
         elif self.targetY < self.y:
             self.y -= min(self.speed, self.y - self.targetY)
 
-    def move_WASD(self, directions):
+    def move_WASD(self, directions, screen_width, screen_height):
         for direction in directions:
             if direction == 'up':
-                self.y -= self.speed
+                new_y = max(self.height // 2, self.y - self.speed)
             elif direction == 'down':
-                self.y += self.speed
-            elif direction == 'left':
-                self.x -= self.speed
+                new_y = min(screen_height - self.height // 2, self.y + self.speed)
+            else:
+                new_y = self.y
+
+            if direction == 'left':
+                new_x = max(self.width // 2, self.x - self.speed)
             elif direction == 'right':
-                self.x += self.speed
+                new_x = min(screen_width - self.width // 2, self.x + self.speed)
+            else:
+                new_x = self.x
+
+            self.x, self.y = new_x, new_y
+
 
