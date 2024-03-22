@@ -14,13 +14,13 @@ pygame.display.set_caption("Game Window!")
 font_size = 24
 game_font = pygame.font.SysFont('Arial', font_size)
 
+player = Character('Me', 200, 200, 50, 50, (255,255,255), 5, False)
 
-
-# Setup characters...
-characters = [Character('Raymond', 50, 50, 50, 50, (255, 0, 0), 5, True),
-              Character('Garry', 100, 100, 50, 50, (0, 255, 0), 5, False),
-              Character('Bert', 150, 150, 50, 50, (0, 0, 255), 5, False)]
-active_character = characters[0]
+# Setup teammates...
+teammates = [Character('Raymond', 50, 50, 50, 50, (255, 0, 0), 1, True),
+              Character('Garry', 100, 100, 50, 50, (0, 255, 0), 1, False),
+              Character('Bert', 150, 150, 50, 50, (0, 0, 255), 1, False)]
+active_character = teammates[0]
 
 running = True
 # Game loop...
@@ -30,38 +30,41 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:  # Right click
             mouseX, mouseY = event.pos
-            for char in characters:
+            for char in teammates:
                 char.isActive = char.x <= mouseX <= char.x + char.width and char.y <= mouseY <= char.y + char.height
                 if char.isActive:
                     active_character = char
                     break
 
-        # Update active_character's targetX and targetY on left click...
+        # Update active_character's targetX and targetY on left click to center the character...
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Left click
-            active_character.targetX, active_character.targetY = event.pos
+            # Subtract half of the character's size to center it at the click location
+            active_character.targetX, active_character.targetY = event.pos[0] - active_character.width // 2, event.pos[1] - active_character.height // 2
 
     # Update and draw characters...
     window.fill((0, 0, 0))
-    for char in characters:
+    for char in teammates:
         char.move_towards_target()
         char.draw(window)
 
+    player.draw(window)
     # Handle keypresses for WASD Movement
     keys = pygame.key.get_pressed()
+
+    directions = []
     if keys[pygame.K_w]:
-        active_character.targetY = active_character.y
-        active_character.targetX = active_character.x
-        active_character.move_WASD('up')
+        directions.append('up')
     if keys[pygame.K_a]:
-        active_character.targetY = active_character.y
-        active_character.targetX = active_character.x
-        active_character.move_WASD('left')
+        directions.append('left')
     if keys[pygame.K_s]:
-        active_character.targetY = active_character.y
-        active_character.targetX = active_character.x
-        active_character.move_WASD('down')
+        directions.append('down')
     if keys[pygame.K_d]:
-        active_character.move_WASD('right')
+        directions.append('right')
+
+    # Only call move_WASD if there are directions to process
+    if directions:
+        player.move_WASD(directions)
+
     # Exit game with ESC
     if keys[pygame.K_ESCAPE]:
         running = False
