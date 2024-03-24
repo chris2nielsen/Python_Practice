@@ -14,7 +14,7 @@ pygame.display.set_caption("Game Window!")
 font_size = 24
 game_font = pygame.font.SysFont('Arial', font_size)
 
-player = Player('Me', 200, 200, 50, 50, 2, 'standby', 100, 0.2, 15, 'Pistol', 0, 'Sarge')
+player = Player('Me', 200, 200, 50, 50, 10, 'standby', 100, 0.2, 15, 'Pistol', 0, 'Sarge')
 
 # Setup teammates...
 teammates = [Teammate('Raymond', 'Red', 50, 50, 50, 50, 1, 'standby', 100, 0.2, 15, 'AR', 0, 'Medic', 1, True),
@@ -45,6 +45,7 @@ while running:
     window.fill((0, 0, 0))
     for char in teammates:
         char.move(char.targetX, char.targetY)
+        #char.updateStatus()
         char.draw(window)
 
     player.draw(window)
@@ -74,7 +75,7 @@ while running:
 
     # Render the status of the active character. Adjust the vertical position to display it underneath the name.
     # The vertical adjustment is based on the height of the name_surface plus a small gap (e.g., 5 pixels).
-    status_surface = game_font.render(f'Status: {active_character.status}', True, (255, 255, 255))
+    status_surface = game_font.render(f"{active_character.name}'s Status: {active_character.status}", True, (255, 255, 255))
 
     # Calculate the position for the name surface. Let's assume you start at (10, 10) for example.
     name_position = (10, 10)

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates.">
+    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="Defined class heirarchy for Characters, set up more of the attributes of the different characters. Cleaned up basically.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/Characters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -23,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "chris2nielsen"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="739d13b3-8f55-4206-9bb5-129719df83c4" />
+        <option name="url" value="https://github.com/chris2nielsen/Python_Practice.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -137,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711087649550</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Defined class heirarchy for Characters, set up more of the attributes of the different characters. Cleaned up basically.">
+      <option name="closed" value="true" />
+      <created>1711319750851</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711319750852</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +176,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I started work on my Python Practice Project PPP. Made basic PyGame Window, Game Loop, Movement Handling (right click select a character, left to move them). Skeleton for the character class. TODO: Edge detection, WASD movement." />
     <MESSAGE value="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates." />
+    <MESSAGE value="Defined class heirarchy for Characters, set up more of the attributes of the different characters. Cleaned up basically." />
+    <option name="LAST_COMMIT_MESSAGE" value="Defined class heirarchy for Characters, set up more of the attributes of the different characters. Cleaned up basically." />
   </component>
 </project>

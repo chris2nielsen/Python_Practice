@@ -39,6 +39,7 @@ class Character(ABC):
     def draw(self, window):
         pass
 
+
 class Teammate(Character):
     def __init__(self, name, color, xPos, yPos, width, height, speed, status, health, dodge, combat_skill, weapon, XP, role, popCont, isActive):
         super().__init__(name, xPos, yPos, width, height, speed, status, health, dodge, combat_skill)
@@ -79,6 +80,8 @@ class Teammate(Character):
             pygame.draw.rect(window, (0, 255, 0), (self.xPos, self.yPos, self.width, self.height))
         elif (self.color == 'Blue'):
             pygame.draw.rect(window, (0, 0, 255), (self.xPos, self.yPos, self.width, self.height))
+
+
 class Player(Character):
     def __init__(self, name, xPos, yPos, width, height, speed, status, health, dodge, combat_skill, weapon, XP, role = 'Sarge'):
         super().__init__(name, xPos, yPos, width, height, speed, status, health, dodge, combat_skill)
@@ -89,15 +92,15 @@ class Player(Character):
     def move(self, directions, screen_width, screen_height):
         for direction in directions:
             if direction == 'up':
-                new_y = max(0, self.yPos - self.speed)
+                new_y = max(0 - self.height/2, self.yPos - self.speed)
             elif direction == 'down':
-                new_y = min(screen_height - self.height, self.yPos + self.speed)
+                new_y = min(screen_height - self.height/2, self.yPos + self.speed)
             else:
                 new_y = self.yPos
             if direction == 'left':
-                new_x = max(0, self.xPos - self.speed)
+                new_x = max(0 - self.width/2, self.xPos - self.speed)
             elif direction == 'right':
-                new_x = min(screen_width - self.width, self.xPos + self.speed)
+                new_x = min(screen_width - self.width/2, self.xPos + self.speed)
             else:
                 new_x = self.xPos
 
