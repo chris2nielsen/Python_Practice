@@ -1,8 +1,30 @@
-# main.py
 import pygame
 from Characters import Character, Teammate, Player  # Assuming the filename is Character.py
+import csv
+from Weapons import Weapon, Attachment
 
-# Initialize Pygame and setup window...
+# Path to your sacred scroll
+weapons_csv = "D:\\Python_Projects\\Game_Making\\MNB2_csvs\\Allied_Weapons.csv"
+weapons = []
+bayonet = Attachment('Bayonet', 0, 0, 0, 0, 0, 0, 0, 10, 0)
+
+with open(weapons_csv, mode='r', newline='', encoding='utf-8-sig') as file:
+    reader = csv.DictReader(file)
+    print("Headers:", reader.fieldnames)  # This will show you the exact headers
+
+    # Now reader holds the keys to each row of your file, as dictionaries
+    for row in reader:
+        # Create a Weapon instance for each row in the CSV
+        weapon = Weapon(name=row['Name'], accuracy=row['Accuracy'], range=row['Range'],
+                        damage=row['Damage'], weight=row['Weight'], magSize=row['Mag_Size'],
+                        fireRate=row['Fire_Rate'], reloadTime=row['Reload_Time'],
+                        CQC=row['CQC'], attachment=bayonet)
+        weapons.append(weapon)  # Don't forget to append the weapon to your list
+
+# Display your weapons
+for weapon in weapons:
+    print(weapon)
+
 pygame.init()
 clock = pygame.time.Clock()
 infoObject = pygame.display.Info()
@@ -14,12 +36,12 @@ pygame.display.set_caption("Game Window!")
 font_size = 24
 game_font = pygame.font.SysFont('Arial', font_size)
 
-player = Player('Me', 200, 200, 50, 50, 10, 'standby', 100, 0.2, 15, 'Pistol', 0, 'Sarge')
+player = Player('Me', 200, 200, 50, 50, 10, 'standby', 100, 0.2, 15, weapons[1], 0, 'Sarge')
 
 # Setup teammates...
-teammates = [Teammate('Raymond', 'Red', 50, 50, 50, 50, 1, 'standby', 100, 0.2, 15, 'AR', 0, 'Medic', 1, True),
-              Teammate('Gary', 'Green', 100, 100, 50, 50, 1, 'standby', 100, 0.2, 15, 'MG', 0, 'Gunner', 1, False),
-              Teammate('Bert', 'Blue', 150, 150, 50, 50, 1, 'standby', 100, 0.2, 15, 'SMG', 0, 'Engineer', 1, False)]
+teammates = [Teammate('Raymond', 'Red', 50, 50, 50, 50, 1, 'standby', 100, 0.2, 15, weapons[0], 0, 'Medic', 1, True),
+              Teammate('Gary', 'Green', 100, 100, 50, 50, 1, 'standby', 100, 0.2, 15, weapons[1], 0, 'Gunner', 1, False),
+              Teammate('Bert', 'Blue', 150, 150, 50, 50, 1, 'standby', 100, 0.2, 15, weapons[2], 0, 'Engineer', 1, False)]
 
 active_character = teammates[0]
 running = True
@@ -45,7 +67,21 @@ while running:
     window.fill((0, 0, 0))
     for char in teammates:
         char.move(char.targetX, char.targetY)
-        #char.updateStatus()
+        if char.xPos != char.targetX or char.yPos != char.targetY:
+            char.status = 'Moving'
+        if char.xPos == char.targetX and char.yPos == char.targetY:
+            char.status = 'Standby'
+        """how to handle pinned status?
+            char.status = 'Pinned'
+        how to handle aim/fire status?
+            char.status = 'Aiming'
+        how to prio status? moving/ability -> reloading/aiming/shooting -> pinned -> dead?
+        prio queue fs
+        """
+        if char == active_character:
+            char.isActive = True
+        else:
+            char.isActive = False
         char.draw(window)
 
     player.draw(window)
@@ -77,6 +113,9 @@ while running:
     # The vertical adjustment is based on the height of the name_surface plus a small gap (e.g., 5 pixels).
     status_surface = game_font.render(f"{active_character.name}'s Status: {active_character.status}", True, (255, 255, 255))
 
+    weapon_surface = game_font.render(f"{active_character.name}'s current weapon: {active_character.weapon.name}", True,
+                                      (255, 255, 255))
+
     # Calculate the position for the name surface. Let's assume you start at (10, 10) for example.
     name_position = (10, 10)
 
@@ -84,9 +123,12 @@ while running:
     # The vertical position is the y-position of the name plus the height of the name_surface plus a small gap.
     status_position = (10, name_position[1] + name_surface.get_height() + 5)
 
+    weapon_position = (10, status_position[1] + status_surface.get_height() + 5)
+
     # Draw (blit) the surfaces onto the screen at their respective positions.
     window.blit(name_surface, name_position)
     window.blit(status_surface, status_position)
+    window.blit(weapon_surface, weapon_position)
 
     # Update the display
     pygame.display.update()

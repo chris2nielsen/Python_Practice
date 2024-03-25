@@ -2,6 +2,9 @@ import pygame
 #for abstract classes
 from abc import ABC, abstractmethod
 
+import math
+import time
+
 #Abstract class for character creation. name, x, y, w, h, speed, health are self explanatory. status would be things like
 #'pinned' or 'reloading' or 'shooting' or 'fleeing' or 'dead'. Dodge is a % chance to not take damage
 #when hit, and combat skill is a value that raises your weapons accuracy
@@ -59,7 +62,6 @@ class Teammate(Character):
         elif x_target < self.xPos:
             self.targetX = x_target
             self.xPos -= min(self.speed, self.xPos - self.targetX)
-
         if y_target > self.yPos:
             self.targetY = y_target
             self.yPos += min(self.speed, self.targetY - self.yPos)
@@ -73,14 +75,30 @@ class Teammate(Character):
     def die(self):
         pass
 
-    def draw(self, window):
-        if(self.color == 'Red'):
-            pygame.draw.rect(window, (255, 0, 0), (self.xPos, self.yPos, self.width, self.height))
-        elif (self.color == 'Green'):
-            pygame.draw.rect(window, (0, 255, 0), (self.xPos, self.yPos, self.width, self.height))
-        elif (self.color == 'Blue'):
-            pygame.draw.rect(window, (0, 0, 255), (self.xPos, self.yPos, self.width, self.height))
+    def interpolate_color(self, colorA, colorB, factor):
+        # Interpolate between two colors
+        return tuple(int(a + (b - a) * factor) for a, b in zip(colorA, colorB))
 
+    def draw(self, window):
+        base_colors = {'Red': (255, 0, 0), 'Green': (0, 255, 0), 'Blue': (0, 0, 255)}
+        target_color = (255, 255, 255)  # White
+
+        if self.isActive:
+            # Get the base color for the character
+            color = base_colors.get(self.color, (255, 255, 255))  # Default to white if not found
+
+            # Use a sine wave to oscillate the factor between 0 and 1
+            oscillation_speed = 10  # Adjust this value to speed up or slow down the oscillation
+            time_factor = math.sin(time.time() * oscillation_speed) / 2 + 0.5  # Normalize between 0 and 1
+
+            # Interpolate between the character's color and white
+            oscillated_color = self.interpolate_color(color, target_color, time_factor)
+
+            pygame.draw.rect(window, oscillated_color, (self.xPos, self.yPos, self.width, self.height))
+        else:
+            # Draw the character with their base color if not active
+            color = base_colors.get(self.color, (255, 255, 255))  # Default to white if not found
+            pygame.draw.rect(window, color, (self.xPos, self.yPos, self.width, self.height))
 
 class Player(Character):
     def __init__(self, name, xPos, yPos, width, height, speed, status, health, dodge, combat_skill, weapon, XP, role = 'Sarge'):
