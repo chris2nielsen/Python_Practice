@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="Added Weapons and Attachments, added indicator for currently selected character, added csv for weapon info and file handling.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/Characters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MNB2_csvs/Allied_Weapons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MNB2_csvs/Allied_Weapons.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Weapons.py" beforeDir="false" afterPath="$PROJECT_DIR$/Weapons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="bc31af19-f1eb-48d5-a4f7-f3ea569a1aac" name="Changes" comment="Started implementing combat mechanics. Cleaned up code, added docstrings to many functions and renamed variables and functions for clarity. Currently, there is an infinite loop somewhere when a friendly gets in firing range of the enemy :(. We'll fix it tomorrow...">
+      <change beforePath="$PROJECT_DIR$/.idea/Game_Making.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MNB2_csvs/Allied_Weapons.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weapons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Python_Projects/Game_Making"
+    "last_opened_file_path": "D:/Python_Projects/Game_Making/MNB2_Second_Attempt"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -177,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711327733818</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Started implementing combat mechanics. Cleaned up code, added docstrings to many functions and renamed variables and functions for clarity. Currently, there is an infinite loop somewhere when a friendly gets in firing range of the enemy :(. We'll fix it tomorrow...">
+      <option name="closed" value="true" />
+      <created>1711516891661</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711516891661</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +210,7 @@
     <MESSAGE value="Renamed non-wasd controlled sprites to teammates and wasd controlled to player, centered movements for teammates." />
     <MESSAGE value="Defined class heirarchy for Characters, set up more of the attributes of the different characters. Cleaned up basically." />
     <MESSAGE value="Added Weapons and Attachments, added indicator for currently selected character, added csv for weapon info and file handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Weapons and Attachments, added indicator for currently selected character, added csv for weapon info and file handling." />
+    <MESSAGE value="Started implementing combat mechanics. Cleaned up code, added docstrings to many functions and renamed variables and functions for clarity. Currently, there is an infinite loop somewhere when a friendly gets in firing range of the enemy :(. We'll fix it tomorrow..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started implementing combat mechanics. Cleaned up code, added docstrings to many functions and renamed variables and functions for clarity. Currently, there is an infinite loop somewhere when a friendly gets in firing range of the enemy :(. We'll fix it tomorrow..." />
   </component>
 </project>
